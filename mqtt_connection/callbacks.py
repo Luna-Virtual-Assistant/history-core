@@ -31,6 +31,5 @@ def on_message(client, userdata, message):
     if message.topic == f"{REQ_TOPIC}":
         data = message.payload.decode()
         data_converted = json.loads(data)
-        print(data_converted)
         history.add_history(data_converted["command"], data_converted["response"])
         publish(data_converted["response"])   
